@@ -26,6 +26,7 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserStore<User> _userStore;
         private readonly IUserEmailStore<User> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
@@ -34,12 +35,14 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
         public RegisterModel(
             UserManager<User> userManager,
             IUserStore<User> userStore,
+            RoleManager<IdentityRole> roleManager,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
             _userManager = userManager;
             _userStore = userStore;
+            _roleManager = roleManager;
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
@@ -140,7 +143,16 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("Usuario creado");
+
+                    var role = await _roleManager.RoleExistsAsync("Administradores");
+
+                    if (!role)
+                    {
+                        await _roleManager.CreateAsync(new IdentityRole("Administradores"));
+                    }
+
+                    await _userManager.AddToRoleAsync(user, "Administradores");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

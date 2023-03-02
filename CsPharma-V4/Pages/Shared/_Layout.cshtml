@@ -11,6 +11,9 @@
 </head>
 <body>
     <header>
+            
+
+            
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  mb-3" style="background-color:#5ccb5f;">
             <div class="container-fluid">
                 <a class="navbar-brand text-white" asp-area="" asp-page="/Index">CsPharma_V4
@@ -40,11 +43,12 @@
                             </li>
                         }
 
-
+                        @if (User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-page="/LineaDistribución/Index">LineaDistribución</a>
                             </li>
-                        
+                        }
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -67,6 +71,8 @@
                                 <a class="nav-link text-white" asp-area="" asp-page="/DevoluciónPedido/Index">DevoluciónPedido</a>
                             </li>
                         }
+
+
                     </ul>
                 </div>
                 <partial name="_LoginPartial"/>
@@ -81,7 +87,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - CsPharma_V4 
+            &copy; 2022 - CsPharma_V4 - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
