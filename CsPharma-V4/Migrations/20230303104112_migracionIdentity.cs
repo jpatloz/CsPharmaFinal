@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CsPharma_V4.Migrations
 {
-    public partial class migracionNueva : Migration
+    public partial class migracionIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

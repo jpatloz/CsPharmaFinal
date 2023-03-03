@@ -23,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodPedido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoDevolucionNavigation)
+                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoDevolucionNavigation.DesEstadoDevolucion)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoEnvioNavigation)
@@ -50,7 +50,7 @@
                 @Html.DisplayFor(modelItem => item.CodPedido)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodEstadoDevolucionNavigation.CodEstadoDevolucion)
+                @Html.DisplayFor(modelItem => item.CodEstadoDevolucionNavigation.DesEstadoDevolucion)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodEstadoEnvioNavigation.CodEstadoEnvio)

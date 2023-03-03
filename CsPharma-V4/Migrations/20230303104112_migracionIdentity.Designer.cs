@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CsPharma_V4.Migrations
 {
     [DbContext(typeof(LoginContexto))]
-    [Migration("20230302185709_migracionNueva")]
-    partial class migracionNueva
+    [Migration("20230303104112_migracionIdentity")]
+    partial class migracionIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

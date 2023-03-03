@@ -8,9 +8,10 @@ namespace CsPharma_V4.Areas.Identity.Data;
 
 // Add profile data for application users by adding properties to the User class
 public class User : IdentityUser
-{
-
+{ 
+    public string Id { get; set; }
     public string NombreUsuario { get; set; }
     public string ApellidosUsuario { get; set; }
+    public string Email { get; set; }
 }
 

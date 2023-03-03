@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DAL.Migrations
 {
-    public partial class migracionNueva : Migration
+    public partial class migracionTablas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

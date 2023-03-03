@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DAL.Migrations
 {
     [DbContext(typeof(CsPharmaV4Context))]
-    [Migration("20230302183031_migracionNueva")]
-    partial class migracionNueva
+    [Migration("20230303104138_migracionTablas")]
+    partial class migracionTablas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

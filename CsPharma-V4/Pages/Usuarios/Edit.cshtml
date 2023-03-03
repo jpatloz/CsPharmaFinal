@@ -1,0 +1,54 @@
+﻿@page
+@model CsPharma_V4.Pages.Usuarios.EditModel
+
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Usuarios</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="User.Id" />
+            <div class="form-group">
+                <label asp-for="User.Id" class="control-label"></label>
+                <input asp-for="User.Id" class="form-control" />
+                <span asp-validation-for="User.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.NombreUsuario" class="control-label"></label>
+                <input asp-for="User.NombreUsuario" class="form-control" />
+                <span asp-validation-for="User.NombreUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.ApellidosUsuario" class="control-label"></label>
+                <input asp-for="User.ApellidosUsuario" class="form-control" />
+                <span asp-validation-for="User.ApellidosUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Email" class="control-label"></label>
+                <input asp-for="User.Email" class="form-control" />
+                <span asp-validation-for="User.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

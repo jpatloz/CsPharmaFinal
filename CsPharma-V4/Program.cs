@@ -3,6 +3,8 @@ using DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using CsPharma_V4.Areas.Identity.Data;
+using CsPharma_V4.Core.Repositorios;
+using CsPharma_V4.Core.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,13 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 
   .AddEntityFrameworkStores<LoginContexto>();
 
+AddScoped();
+
+void AddScoped()
+{
+    builder.Services.AddScoped<UsuarioRepository, UsuarioImpl>();
+    builder.Services.AddScoped<WorkRepository, WorkImpl>();
+}
 
 
 var app = builder.Build();
