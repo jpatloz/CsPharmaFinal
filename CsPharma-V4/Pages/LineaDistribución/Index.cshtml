@@ -5,14 +5,23 @@
     ViewData["Title"] = "Index";
 }
 
+<!-- Página que nos muestra la información de las líneas de distribución-->
+
 <h1>Index</h1>
 
+
+<!-- Este botón nos redirige al formulario de creación -->
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Crear</a>
 </p>
+
+<!-- Tablas que despliegan la información de los campos-->
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].Id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].MdUuid)
             </th>
@@ -20,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].MdDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].Id)
+                @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].CodLinea)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion[0].CodProvincia)
@@ -38,13 +47,16 @@
 @foreach (var item in Model.TdcCatLineasDistribucion) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.MdUuid)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MdDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.CodLinea)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodProvincia)
@@ -55,10 +67,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CodBarrio)
             </td>
+
+            <!-- Redirecciones a las páginas de edición, detalles y eliminar -->
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.CodLinea">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.CodLinea">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CodLinea">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.CodLinea">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.CodLinea">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CodLinea">Eliminar</a>
             </td>
         </tr>
 }

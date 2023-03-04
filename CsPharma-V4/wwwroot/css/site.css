@@ -3,7 +3,7 @@ html {
     background-color: #ffffff;
 }
 
-h1 {
+h1, h4 {
     color: #5dc1b9 !important;
 }
 
@@ -54,4 +54,22 @@ button {
     width: 100%;
     color: #5dc1b9;
     margin-bottom: 2%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    background-color: black;
+}
+
+input {
+    border-radius: 25px;
+    padding: 15px;
+    width: 50%;
+    background-color: #ffffff;
+    color: #5dc1b9;
+    border-color: #5dc1b9;
 }

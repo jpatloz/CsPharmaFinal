@@ -2,15 +2,18 @@
 @model CsPharma_V4.Pages.LineaDistribución.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
 }
 
-<h1>Create</h1>
+<!-- Página de creación de las líneas de distribución -->
 
-<h4>TdcCatLineasDistribucion</h4>
+<h1>Crear</h1>
+
+<h4>Líneas de distribución</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <!-- Formulario de creación -->
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -43,15 +46,18 @@
                 <input asp-for="TdcCatLineasDistribucion.CodBarrio" class="form-control" />
                 <span asp-validation-for="TdcCatLineasDistribucion.CodBarrio" class="text-danger"></span>
             </div>
+
+            <!-- Botón para enviar la información del formulario-->
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear"/>
             </div>
         </form>
     </div>
 </div>
 
+<!-- Link para volver al index -->
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Volver</a>
 </div>
 
 @section Scripts {

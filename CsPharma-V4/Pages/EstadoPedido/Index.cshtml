@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].MdUuid)
             </th>
             <th>
@@ -31,8 +34,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoPagoNavigation.DesEstadoPago)
             </th>
-            <th
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodLineaNavigation)
+            <th>
+                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodLineaNavigation.CodLinea)
             </th>
             <th></th>
         </tr>
@@ -40,6 +43,9 @@
     <tbody>
 @foreach (var item in Model.TdcTchEstadoPedido) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MdUuid)
             </td>
@@ -62,8 +68,8 @@
                 @Html.DisplayFor(modelItem => item.CodLineaNavigation.CodLinea)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> 
-                <a asp-page="./Details" asp-route-id="@item.Id">Detalles</a> 
+                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>

@@ -2,14 +2,18 @@
 @model CsPharma_V4.Pages.PagoPedido.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h1>Details</h1>
+<!-- Esta página nos muestra los detalles de pago -->
+
+<h1>Detalles</h1>
 
 <div>
-    <h4>TdcCatEstadosPagoPedido</h4>
+    <h4>Estado de pago del pedido</h4>
     <hr />
+
+    <!-- Despliegue de la información de los campos -->
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TdcCatEstadosPagoPedido.MdUuid)
@@ -37,7 +41,9 @@
         </dd>
     </dl>
 </div>
+
+<!-- Links que nos llevan de vuelta al index o a editar los detalles del formulario-->
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.TdcCatEstadosPagoPedido?.CodEstadoPago">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.TdcCatEstadosPagoPedido?.CodEstadoPago">Editar</a> |
+    <a asp-page="./Index">Volver</a>
 </div>

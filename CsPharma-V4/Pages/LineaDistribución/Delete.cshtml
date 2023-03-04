@@ -2,21 +2,25 @@
 @model CsPharma_V4.Pages.LineaDistribución.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar";
 }
 
-<h1>Delete</h1>
+<!-- Página para eliminar una fila de las líneas de distribución -->
 
-<h3>Are you sure you want to delete this?</h3>
+<h1>Eliminar</h1>
+
+<h3>¿Está seguro de que quiere eliminarlo?</h3>
 <div>
-    <h4>TdcCatLineasDistribucion</h4>
+    <h4>Líneas de distribución</h4>
     <hr />
+
+    <!-- Despliegue de la información a eliminar-->
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion.MdUuid)
+            @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion.Id)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TdcCatLineasDistribucion.MdUuid)
+            @Html.DisplayFor(model => model.TdcCatLineasDistribucion.Id)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion.MdDate)
@@ -25,10 +29,10 @@
             @Html.DisplayFor(model => model.TdcCatLineasDistribucion.MdDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion.Id)
+            @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion.MdUuid)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TdcCatLineasDistribucion.Id)
+            @Html.DisplayFor(model => model.TdcCatLineasDistribucion.MdUuid)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TdcCatLineasDistribucion.CodProvincia)
@@ -49,10 +53,12 @@
             @Html.DisplayFor(model => model.TdcCatLineasDistribucion.CodBarrio)
         </dd>
     </dl>
-    
+
+    <!-- Formulario para eliminar los campos dándole al botón -->
     <form method="post">
         <input type="hidden" asp-for="TdcCatLineasDistribucion.CodLinea" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Eliminar"/> |
+        <!-- Link para volver al index-->
+        <a asp-page="./Index">Volver</a>
     </form>
 </div>

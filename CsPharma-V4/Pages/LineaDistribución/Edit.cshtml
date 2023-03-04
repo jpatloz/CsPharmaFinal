@@ -2,16 +2,20 @@
 @model CsPharma_V4.Pages.LineaDistribución.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
+<!-- Página de edición de las líneas de distribución-->
 
-<h4>TdcCatLineasDistribucion</h4>
+<h1>Editar</h1>
+
+<h4>Líneas de distribución</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
+
+            <!-- Formulario de edición de los campos -->
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="TdcCatLineasDistribucion.CodLinea" />
             <div class="form-group">
@@ -26,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="TdcCatLineasDistribucion.CodLinea" class="control-label"></label>
-                <input asp-for="TdcCatLineasDistribucion.CodLinea" class="form-control" />
+                <input asp-for="TdcCatLineasDistribucion.CodLinea" class="form-control" readonly/> <!-- Usamos readonly para que solo pueda verse la información y no ser modificada-->
                 <span asp-validation-for="TdcCatLineasDistribucion.CodLinea" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,15 +48,17 @@
                 <input asp-for="TdcCatLineasDistribucion.CodBarrio" class="form-control" />
                 <span asp-validation-for="TdcCatLineasDistribucion.CodBarrio" class="text-danger"></span>
             </div>
+            <!-- Botón que guarda la información del formulario -->
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" />
             </div>
         </form>
     </div>
 </div>
 
+<!-- Link para volver al index -->
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Volver</a>
 </div>
 
 @section Scripts {

@@ -8,11 +8,14 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Crear</a>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TdcCatEstadosEnvioPedido[0].Id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatEstadosEnvioPedido[0].MdUuid)
             </th>
@@ -20,7 +23,7 @@
                 @Html.DisplayNameFor(model => model.TdcCatEstadosEnvioPedido[0].MdDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcCatEstadosEnvioPedido[0].Id)
+                @Html.DisplayNameFor(model => model.TdcCatEstadosEnvioPedido[0].CodEstadoEnvio)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TdcCatEstadosEnvioPedido[0].DesEstadoEnvio)
@@ -32,21 +35,24 @@
 @foreach (var item in Model.TdcCatEstadosEnvioPedido) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.MdUuid)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MdDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.CodEstadoEnvio)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DesEstadoEnvio)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.CodEstadoEnvio">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.CodEstadoEnvio">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CodEstadoEnvio">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.CodEstadoEnvio">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.CodEstadoEnvio">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CodEstadoEnvio">Eliminar</a>
             </td>
         </tr>
 }
