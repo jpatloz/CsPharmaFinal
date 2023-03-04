@@ -8,7 +8,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Crear</a>
 </p>
 <table class="table">
     <thead>
@@ -26,12 +26,12 @@
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoDevolucionNavigation.DesEstadoDevolucion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoEnvioNavigation)
+                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoEnvioNavigation.DesEstadoEnvio)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoPagoNavigation)
+                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoPagoNavigation.DesEstadoPago)
             </th>
-            <th>
+            <th
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodLineaNavigation)
             </th>
             <th></th>
@@ -53,18 +53,18 @@
                 @Html.DisplayFor(modelItem => item.CodEstadoDevolucionNavigation.DesEstadoDevolucion)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodEstadoEnvioNavigation.CodEstadoEnvio)
+                @Html.DisplayFor(modelItem => item.CodEstadoEnvioNavigation.DesEstadoEnvio)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CodEstadoPagoNavigation.CodEstadoPago)
+                @Html.DisplayFor(modelItem => item.CodEstadoPagoNavigation.DesEstadoPago)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CodLineaNavigation.CodLinea)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> 
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalles</a> 
+                <a asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
             </td>
         </tr>
 }

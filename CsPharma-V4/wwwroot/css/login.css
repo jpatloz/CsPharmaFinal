@@ -1,0 +1,39 @@
+﻿body {
+    background-color: #ffffff;
+    color: #090909;
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-49%, -49%);
+    width: 400px;
+}
+
+link {
+    padding: 15px;
+}
+
+label{
+    position: center;
+}
+
+.box {
+    position: relative;
+    border-radius: 25px;
+    border-color: #5dc1b9;
+    padding: 10px;
+    width: 100%;
+    color: #5dc1b9;
+}
+
+.button {
+    border-radius: 25px;
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #5dc1b9;
+    border-color: #5dc1b9;
+}
+

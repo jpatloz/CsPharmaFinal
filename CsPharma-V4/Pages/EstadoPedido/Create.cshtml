@@ -24,16 +24,16 @@
                 <span asp-validation-for="TdcTchEstadoPedido.MdDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="control-label"></label>
-                <select asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class ="form-control" asp-items="ViewBag.CodEstadoEnvio"></select>
+                <label asp-for="TdcTchEstadoPedido.CodEstadoEnvioNavigation.DesEstadoEnvio" class="control-label"></label>
+                <select asp-for="TdcTchEstadoPedido.CodEstadoEnvioNavigation.DesEstadoEnvio" class="form-control" asp-items="ViewBag.CodEstadoEnvioNavigation.DesEstadoEnvio"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodEstadoPago" class="control-label"></label>
-                <select asp-for="TdcTchEstadoPedido.CodEstadoPago" class ="form-control" asp-items="ViewBag.CodEstadoPago"></select>
+                <label asp-for="TdcTchEstadoPedido.CodEstadoPagoNavigation.DesEstadoPago" class="control-label"></label>
+                <select asp-for="TdcTchEstadoPedido.CodEstadoPagoNavigation.DesEstadoPago" class="form-control" asp-items="ViewBag.CodEstadoPagoNavigation.DesEstadoPago"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="control-label"></label>
-                <select asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class ="form-control" asp-items="ViewBag.CodEstadoDevolucion"></select>
+                <label asp-for="TdcTchEstadoPedido.CodEstadoDevolucionNavigation.DesEstadoDevolucion" class="control-label"></label>
+                <select asp-for="TdcTchEstadoPedido.CodEstadoDevolucionNavigation.DesEstadoDevolucion" class="form-control" asp-items="ViewBag.CodEstadoDevolucionNavigation.DesEstadoDevolucion"></select>
             </div>
             <div class="form-group">
                 <label asp-for="TdcTchEstadoPedido.CodPedido" class="control-label"></label>

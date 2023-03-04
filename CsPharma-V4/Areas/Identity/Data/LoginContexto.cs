@@ -41,7 +41,6 @@ public class UserEntityConfiguration : IEntityTypeConfiguration<User>
     public void Configure(EntityTypeBuilder<User> builder)
     {
         //añadimos nuevos campos
-        builder.Property(usuario => usuario.Id).HasMaxLength(255);
         builder.Property(usuario => usuario.NombreUsuario).HasMaxLength(255);
         builder.Property(usuario => usuario.ApellidosUsuario).HasMaxLength(255);
         builder.Property(usuario => usuario.Email).HasMaxLength(255);

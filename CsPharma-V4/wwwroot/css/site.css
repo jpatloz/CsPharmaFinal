@@ -1,5 +1,18 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+h1 {
+    color: #5dc1b9 !important;
+}
+
+body{
+    color: #090909;
+}
+
+header{
+    background-color: #5ccb5f;
 }
 
 @media (min-width: 768px) {
@@ -9,18 +22,36 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background-color: #ffffff;
 }
 
 body {
   margin-bottom: 60px;
 }
-.headerLetters {
-    color: #ffffff;
-}
-button{
+
+registerForm {
+    border-radius: 16px;
     border-color: #5dc1b9;
-    border-radius: 45%;
-   
+    color: #5dc1b9;
+    background-color: white;
+}
+
+button {
+    border-radius: 25px;
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #5dc1b9;
+    border-color: #5dc1b9;
+}
+
+.form-control {
+    border-radius: 25px;
+    border-color: #5dc1b9;
+    padding: 10px;
+    width: 100%;
+    color: #5dc1b9;
+    margin-bottom: 2%;
 }

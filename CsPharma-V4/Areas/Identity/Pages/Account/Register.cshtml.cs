@@ -82,13 +82,13 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
             /// 
 
             [Required]
-            [StringLength(255, ErrorMessage = "El campo del nombre tiene un máximo de 255 caracteres", MinimumLength = 4)]
-            [Display(Name = "NombreUsuario")]
+            [StringLength(255, ErrorMessage = "El campo del nombre tiene un máximo de 255 caracteres")]
+            [Display(Name = "Nombre")]
             public string NombreUsuario { get; set; }
 
             [Required]
-            [StringLength(255, ErrorMessage = "El campo de los apellidos tiene un máximo de 255 caracteres", MinimumLength = 4)]
-            [Display(Name = "ApellidosUsuario")]
+            [StringLength(255, ErrorMessage = "El campo de apellidos tiene un máximo de 255 caracteres")]
+            [Display(Name = "Apellidos")]
             public string ApellidosUsuario { get; set; }
 
             [Required]
@@ -100,23 +100,20 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            ///
-           
-
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "No alcanza el mínimo de carácteres requeridos", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
-            public string Password { get; set; }
+            [Display(Name = "Contraseña")]
+            public string Contraseña { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
+            [Display(Name = "ConfirmarContraseña")]
+            [Compare("Contraseña", ErrorMessage = "Las contraseñas no coinciden")]
+            public string ConfirmarContraseña { get; set; }
         }
 
 
@@ -139,7 +136,7 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                var result = await _userManager.CreateAsync(user, Input.Contraseña);
 
                 if (result.Succeeded)
                 {
