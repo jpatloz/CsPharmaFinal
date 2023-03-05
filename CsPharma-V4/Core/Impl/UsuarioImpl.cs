@@ -12,12 +12,20 @@ namespace CsPharma_V4.Core.Impl
             _context = context;
         }
 
-        public User GetUser(int id)
+        public User ActualizarUsuario(User usuario)
         {
-            return _context.Users.FirstOrDefault(u => u.Id == id.ToString());
+            _context.Update(usuario);
+            _context.SaveChanges();
+
+            return usuario;
         }
 
-        public ICollection<User> GetUsers()
+        public User GetUsuario(string id)
+        {
+            return _context.Users.FirstOrDefault(u => u.Id == id);
+        }
+
+        public ICollection<User> GetUsuarios()
         {
             return _context.Users.ToList();
         }

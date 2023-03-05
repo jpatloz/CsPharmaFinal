@@ -1,0 +1,48 @@
+﻿@page
+@model CsPharma_V4.Pages.Usuarios.DeleteModel
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<div class="body">
+    <h1>Eliminar</h1>
+
+    <h3>¿Está seguro de eliminarlo?</h3>
+    <div>
+        <h4>Información del usuario</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Usuario.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Usuario.Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Usuario.UserName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Usuario.UserName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Usuario.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Usuario.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Usuario.PhoneNumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Usuario.PhoneNumber)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Usuario.Id" />
+            <input type="submit" value="Delete"/> |
+            <a asp-page="./Index">Volver</a>
+        </form>
+    </div>
+
+</div>

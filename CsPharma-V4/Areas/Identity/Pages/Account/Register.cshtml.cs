@@ -142,14 +142,14 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("Usuario creado");
 
-                    var role = await _roleManager.RoleExistsAsync("Administradores");
+                    var role = await _roleManager.RoleExistsAsync("Usuarios");
 
                     if (!role)
                     {
-                        await _roleManager.CreateAsync(new IdentityRole("Administradores"));
+                        await _roleManager.CreateAsync(new IdentityRole("Usuarios"));
                     }
 
-                    await _userManager.AddToRoleAsync(user, "Administradores");
+                    await _userManager.AddToRoleAsync(user, "Usuarios");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

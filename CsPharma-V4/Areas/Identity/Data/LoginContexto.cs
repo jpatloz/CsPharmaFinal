@@ -8,6 +8,10 @@ namespace CsPharma_V4.Areas.Identity.Data;
 
 public class LoginContexto : IdentityDbContext<User>
 {
+    
+    //Creamos un DBSet para poder llamar a la tabla User
+    public virtual DbSet<User> UserSet { get; set; }
+
     public LoginContexto(DbContextOptions<LoginContexto> options)
         : base(options)
     {

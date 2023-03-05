@@ -7,11 +7,7 @@ namespace CsPharma_V4.Pages.Roles
 {
     public class EmpleadosModel : PageModel
     {
-
-
-        [Authorize(Roles = "Empleados")]
-
-
+        [Authorize(Roles = "Administradores  && Empleados")]
         public IActionResult Index()
             {
                 return Page();

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.EnvioPedido
 {
+    [Authorize(Roles = "Administradores, Empleados")]
     public class CreateModel : PageModel
     {
         private readonly DAL.Models.CsPharmaV4Context _context;

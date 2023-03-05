@@ -1,29 +1,29 @@
 using CsPharma_V4.Areas.Identity.Data;
 using CsPharma_V4.Core.Repositorios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace CsPharma_V4.Pages.Usuarios
 {
+    [Authorize(Roles = "Administradores")]
     public class IndexModel : PageModel
     {
         private readonly LoginContexto _context;
 
-        private readonly WorkRepository _workRepository;
-        public IndexModel(LoginContexto context, WorkRepository workRepository)
+        public IndexModel(LoginContexto context)
         {
             _context = context;
-            _workRepository = workRepository;
         }
 
-        public IList<User> User { get; set; } = default!;
+        public IList<User> listaUsuarios { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync()
+        public async Task<PageResult> OnGetAsync()
         {
-            if (_context.Users != null)
+            if (_context.UserSet != null)
             {
-                User = await _context.Users.ToListAsync();
+                listaUsuarios = await _context.UserSet.ToListAsync();
             }
             return Page();
         }

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.EstadoPedido
 {
+    [Authorize(Roles = "Administradores, Empleados")]
     public class CreateModel : PageModel
     {
         private readonly DAL.Models.CsPharmaV4Context _context;
@@ -34,11 +36,6 @@ namespace CsPharma_V4.Pages.EstadoPedido
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             _context.TdcTchEstadoPedidos.Add(TdcTchEstadoPedido);
             await _context.SaveChangesAsync();
 

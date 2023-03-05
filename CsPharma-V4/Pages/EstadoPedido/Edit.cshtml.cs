@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.EstadoPedido
 {
+    [Authorize(Roles = "Administradores, Empleados")]
     public class EditModel : PageModel
     {
         private readonly DAL.Models.CsPharmaV4Context _context;
@@ -41,16 +43,8 @@ namespace CsPharma_V4.Pages.EstadoPedido
            ViewData["CodLinea"] = new SelectList(_context.TdcCatLineasDistribucions, "CodLinea", "CodLinea");
             return Page();
         }
-
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
             _context.Attach(TdcTchEstadoPedido).State = EntityState.Modified;
 
             try

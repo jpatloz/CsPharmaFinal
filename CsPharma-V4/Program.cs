@@ -8,30 +8,37 @@ using CsPharma_V4.Core.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Añadir servicios de razor y controladores
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+
+//Añade el Framework NPGSQL y el contexto para conectarnos a sus datos a través de la cadena de conexión
 builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<CsPharmaV4Context>(options =>
     {
         options.UseNpgsql(builder.Configuration.GetConnectionString("EFCConexion"));
     });
 
+//Añade el Framework NPGSQL y el contexto para conectarnos a sus datos a través de la cadena de conexión
 builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<LoginContexto>(options =>
     {
         options.UseNpgsql(builder.Configuration.GetConnectionString("EFCConexion"));
     });
-                                                                                                        //activa los roles
+
+//activa los roles
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>()
 
   .AddEntityFrameworkStores<LoginContexto>();
 
+
+//Inyectamos en el contenedor de dependencias estos tres servicios a través de addScoped para crear instancias de los servicios
 AddScoped();
 
 void AddScoped()
 {
     builder.Services.AddScoped<UsuarioRepository, UsuarioImpl>();
+    builder.Services.AddScoped<RolRepository, RolImpl>();
     builder.Services.AddScoped<WorkRepository, WorkImpl>();
 }
 
@@ -43,7 +50,6 @@ AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

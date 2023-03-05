@@ -5,11 +5,15 @@
     ViewData["Title"] = "Detalles";
 }
 
+<!-- Página que muestra los detalles de los pedidos -->
+
 <h1>Detalles</h1>
 
 <div>
     <h4>Estado del pedido</h4>
     <hr />
+
+    <!-- Despliegue de los detalles -->
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.MdUuid)
@@ -30,32 +34,34 @@
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodPedido)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoDevolucionNavigation.DesEstadoDevolucion)
+            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoDevolucion)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoDevolucionNavigation.DesEstadoDevolucion)
+            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoDevolucion)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoEnvioNavigation.DesEstadoEnvio)
+            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoEnvio)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoEnvioNavigation.DesEstadoEnvio)
+            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoEnvio)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoPagoNavigation.DesEstadoPago)
+            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoPago)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoPagoNavigation.DesEstadoPago)
+            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoPago)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodLineaNavigation.CodLinea)
+            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodLinea)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodLineaNavigation.CodLinea)
+            @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodLinea)
         </dd>
     </dl>
 </div>
 <div>
+
+    <!-- Links que nos llevan de vuelta al index o a editar los detalles -->
     <a asp-page="./Edit" asp-route-id="@Model.TdcTchEstadoPedido?.Id">Editar</a> |
     <a asp-page="./Index">Volver</a>
 </div>

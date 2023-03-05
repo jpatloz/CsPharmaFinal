@@ -1,49 +1,69 @@
 ﻿@page
 @model CsPharma_V4.Pages.Usuarios.EditModel
 
+<!-- Página de edición para la lista de usuarios -->
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
+<h1>Editar</h1>
 
-<h4>Usuarios</h4>
+<h4>Lista de usuarios registrados</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
+        
+        <!-- Formulario que muestra la información de los usuarios a partir de la clase ModeloUsuario -->
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="User.Id" />
+            <input type="hidden" asp-for="ModeloUsuario.Usuarios.Id" />
             <div class="form-group">
-                <label asp-for="User.Id" class="control-label"></label>
-                <input asp-for="User.Id" class="form-control" />
-                <span asp-validation-for="User.Id" class="text-danger"></span>
+                <input asp-for="ModeloUsuario.Usuarios.Id" class="form-control" />
+                <span asp-validation-for="ModeloUsuario.Usuarios.Id" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.NombreUsuario" class="control-label"></label>
-                <input asp-for="User.NombreUsuario" class="form-control" />
-                <span asp-validation-for="User.NombreUsuario" class="text-danger"></span>
+                <label asp-for="ModeloUsuario.Usuarios.UserName" class="control-label"></label>
+                <input asp-for="ModeloUsuario.Usuarios.UserName" class="form-control" />
+                <span asp-validation-for="ModeloUsuario.Usuarios.UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.ApellidosUsuario" class="control-label"></label>
-                <input asp-for="User.ApellidosUsuario" class="form-control" />
-                <span asp-validation-for="User.ApellidosUsuario" class="text-danger"></span>
+                <label asp-for="ModeloUsuario.Usuarios.Email" class="control-label"></label>
+                <input asp-for="ModeloUsuario.Usuarios.Email" class="form-control" />
+                <span asp-validation-for="ModeloUsuario.Usuarios.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Email" class="control-label"></label>
-                <input asp-for="User.Email" class="form-control" />
-                <span asp-validation-for="User.Email" class="text-danger"></span>
+                <label asp-for="ModeloUsuario.Usuarios.PhoneNumber" class="control-label"></label>
+                <input asp-for="ModeloUsuario.Usuarios.PhoneNumber" class="form-control" />
+                <span asp-validation-for="ModeloUsuario.Usuarios.PhoneNumber" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label>Roles:</label>
+                @foreach (var rol in Model.ModeloUsuario.Roles)
+                {
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"
+                           asp-for="@rol.Selected"
+                           value="@rol.Value" />
+                        <label class="form-check-label" asp-for="@rol.Selected">
+                            @rol.Text
+                        </label>
+                    </div>
+                }
+            </div>
+
+            <!-- Botón que guarda los datos del formulario en la base de datos en caso de que haya sido editado-->
+            <div class="form-group">
+                <input type="submit" value="Guardar" />
             </div>
         </form>
     </div>
 </div>
 
+<!-- Botón para volver al index -->
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Volver</a>
 </div>
 
 @section Scripts {

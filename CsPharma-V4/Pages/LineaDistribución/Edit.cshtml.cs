@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.LineaDistribución
 {
+    [Authorize(Roles = "Administradores, Empleados")]
     public class EditModel : PageModel
     {
-        private readonly DAL.Models.CsPharmaV4Context _context;
+        private readonly CsPharmaV4Context _context;
 
-        public EditModel(DAL.Models.CsPharmaV4Context context)
+        public EditModel(CsPharmaV4Context context)
         {
             _context = context;
         }
@@ -38,8 +40,6 @@ namespace CsPharma_V4.Pages.LineaDistribución
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)

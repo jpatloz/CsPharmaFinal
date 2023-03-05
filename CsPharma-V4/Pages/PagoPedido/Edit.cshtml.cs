@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.PagoPedido
 {
+    [Authorize(Roles = "Administradores, Empleados")]
     public class EditModel : PageModel
     {
         private readonly DAL.Models.CsPharmaV4Context _context;

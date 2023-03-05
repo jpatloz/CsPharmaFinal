@@ -8,46 +8,45 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Crear</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].Id)
+                @Html.DisplayNameFor(model => model.listaUsuarios[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].NombreUsuario)
+                @Html.DisplayNameFor(model => model.listaUsuarios[0].UserName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].ApellidosUsuario)
+                @Html.DisplayNameFor(model => model.listaUsuarios[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].Email)
+                @Html.DisplayNameFor(model => model.listaUsuarios[0].PhoneNumber)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.User)
+        @foreach (var item in Model.listaUsuarios)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.NombreUsuario)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApellidosUsuario)
+                    @Html.DisplayFor(modelItem => item.UserName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
                 </td>
             </tr>
         }

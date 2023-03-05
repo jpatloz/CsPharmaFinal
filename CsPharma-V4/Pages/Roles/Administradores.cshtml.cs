@@ -9,8 +9,6 @@ namespace CsPharma_V4.Pages.Roles
     {
 
         [Authorize(Roles = "Administradores")]
-
-
         public IActionResult Index()
         {
             return Page();
