@@ -5,11 +5,25 @@
     ViewData["Title"] = "Index";
 }
 
+<!-- Página de index de la lista de usuarios -->
+
 <h1>Index</h1>
 
+<!-- Botón que nos lleva a la vista de crear -->
 <p>
     <a asp-page="Create">Crear</a>
 </p>
+
+<!-- Formulario para ingresar el filtro -->
+<form method="get">
+    <div class="form-group">
+        <label for="filtro">Filtro de búsqueda:</label>
+        <input type="text" name="filtro" placeholder="Buscar" class="form-control" value="@Model.Filtro" />
+    </div>
+    <button type="submit">Buscar</button>
+</form>
+
+<!-- Tabla que muestra la información de los usuarios -->
 <table class="table">
     <thead>
         <tr>
@@ -44,7 +58,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.PhoneNumber)
                 </td>
-                <td>
+
+                <!-- Links para redirigir a las vistas de editar y eliminar -->
+                <td> 
                     <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
                     <a asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
                 </td>

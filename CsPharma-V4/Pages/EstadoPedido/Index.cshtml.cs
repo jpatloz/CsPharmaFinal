@@ -11,25 +11,35 @@ namespace CsPharma_V4.Pages.EstadoPedido
 {
     public class IndexModel : PageModel
     {
-        private readonly DAL.Models.CsPharmaV4Context _context;
+        private readonly CsPharmaV4Context _context;
 
-        public IndexModel(DAL.Models.CsPharmaV4Context context)
+        public IndexModel(CsPharmaV4Context context)
         {
             _context = context;
         }
 
         public IList<TdcTchEstadoPedido> TdcTchEstadoPedido { get;set; } = default!;
+        public string Filtro { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string filtro)
         {
-            if (_context.TdcTchEstadoPedidos != null)
-            {
-                TdcTchEstadoPedido = await _context.TdcTchEstadoPedidos
-                .Include(t => t.CodEstadoDevolucionNavigation)
-                .Include(t => t.CodEstadoEnvioNavigation)
-                .Include(t => t.CodEstadoPagoNavigation)
-                .Include(t => t.CodLineaNavigation).ToListAsync();
+                IQueryable<TdcTchEstadoPedido> query = _context.TdcTchEstadoPedidos
+                    .Include(t => t.CodEstadoDevolucionNavigation)
+                    .Include(t => t.CodEstadoEnvioNavigation)
+                    .Include(t => t.CodEstadoPagoNavigation)
+                    .Include(t => t.CodLineaNavigation);
+
+                if (!string.IsNullOrEmpty(filtro))
+                {
+                    query = query.Where(t => t.CodEstadoDevolucionNavigation.DesEstadoDevolucion.Contains(filtro)
+                        || t.CodEstadoEnvioNavigation.DesEstadoEnvio.Contains(filtro)
+                        || t.CodEstadoPagoNavigation.DesEstadoPago.Contains(filtro)
+                        || t.CodLinea.Contains(filtro) || t.CodPedido.Contains(filtro));
+                }
+
+                TdcTchEstadoPedido = await query.ToListAsync();
+                Filtro = filtro;
             }
         }
     }
-}
+

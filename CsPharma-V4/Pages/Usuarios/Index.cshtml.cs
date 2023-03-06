@@ -18,13 +18,27 @@ namespace CsPharma_V4.Pages.Usuarios
         }
 
         public IList<User> listaUsuarios { get; set; } = default!;
+        public string Filtro { get; set; }
 
-        public async Task<PageResult> OnGetAsync()
+        public async Task<PageResult> OnGetAsync(string filtro)
         {
+            IQueryable<User> query = _context.UserSet;
+
             if (_context.UserSet != null)
             {
                 listaUsuarios = await _context.UserSet.ToListAsync();
             }
+
+            //Método para que el filtro busque por el nombre de usuario, email y teléfono
+
+            if (!string.IsNullOrEmpty(filtro))
+            {
+                query = query.Where(u => u.UserName.Contains(filtro) || u.Email.Contains(filtro) || u.PhoneNumber.Contains(filtro));
+            }
+
+            listaUsuarios = await query.ToListAsync();
+            Filtro = filtro;
+
             return Page();
         }
     }
