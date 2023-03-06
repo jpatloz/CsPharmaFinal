@@ -9,7 +9,7 @@
 
 <h1>Editar</h1>
 
-<h4>Estado del pedido</h4>
+<h4>Información del pedido</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -17,39 +17,27 @@
         <!-- Formulario de estado del pedido -->
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TdcTchEstadoPedido.CodPedido" />
+            <input type="hidden" asp-for="TdcTchEstadoPedido.MdUuid" />
+            <input type="hidden" asp-for="TdcTchEstadoPedido.MdDate" />
             <input type="hidden" asp-for="TdcTchEstadoPedido.Id" />
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.MdUuid" class="control-label"></label>
-                <input asp-for="TdcTchEstadoPedido.MdUuid" class="form-control" />
-                <span asp-validation-for="TdcTchEstadoPedido.MdUuid" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.MdDate" class="control-label"></label>
-                <input asp-for="TdcTchEstadoPedido.MdDate" class="form-control" />
-                <span asp-validation-for="TdcTchEstadoPedido.MdDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="control-label"></label>
+                <label asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="control-label">Estado envío</label>
                 <select asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="form-control" asp-items="ViewBag.CodEstadoEnvio"></select>
                 <span asp-validation-for="TdcTchEstadoPedido.CodEstadoEnvio" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodEstadoPago" class="control-label"></label>
+                <label asp-for="TdcTchEstadoPedido.CodEstadoPago" class="control-label">Estado Pago</label>
                 <select asp-for="TdcTchEstadoPedido.CodEstadoPago" class="form-control" asp-items="ViewBag.CodEstadoPago"></select>
                 <span asp-validation-for="TdcTchEstadoPedido.CodEstadoPago" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="control-label"></label>
+                <label asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="control-label">Estado devolución</label>
                 <select asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="form-control" asp-items="ViewBag.CodEstadoDevolucion"></select>
                 <span asp-validation-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodPedido" class="control-label"></label>
-                <input asp-for="TdcTchEstadoPedido.CodPedido" class="form-control" />
-                <span asp-validation-for="TdcTchEstadoPedido.CodPedido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TdcTchEstadoPedido.CodLinea" class="control-label"></label>
+                <label asp-for="TdcTchEstadoPedido.CodLinea" class="control-label">Código de línea</label>
                 <select asp-for="TdcTchEstadoPedido.CodLinea" class="form-control" asp-items="ViewBag.CodLinea"></select>
                 <span asp-validation-for="TdcTchEstadoPedido.CodLinea" class="text-danger"></span>
             </div>
@@ -65,7 +53,7 @@
 <!-- Botón para volver al index -->
 
 <div>
-    <a asp-page="./Index">Volver</a>
+    <a asp-page="./Index" class="btn btn-primary" >Volver</a>
 </div>
 
 @section Scripts {

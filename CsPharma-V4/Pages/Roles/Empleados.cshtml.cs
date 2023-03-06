@@ -5,9 +5,10 @@ using System.Data;
 
 namespace CsPharma_V4.Pages.Roles
 {
+    [Authorize(Roles = "Administradores, Empleados")]
     public class EmpleadosModel : PageModel
     {
-        [Authorize(Roles = "Administradores  && Empleados")]
+        
         public IActionResult Index()
             {
                 return Page();

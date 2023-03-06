@@ -7,11 +7,16 @@
 
 <h1>Eliminar</h1>
 
-<h3>¿Está seguro de que quiere eliminarlo?</h3>
 <div>
-    <h4>Estado del pedido</h4>
+    <h4>Información del pedido</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TdcTchEstadoPedido.Id)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.MdUuid)
         </dt>
@@ -25,40 +30,46 @@
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.MdDate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodPedido)
+            @Html.DisplayName("Código de pedido")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodPedido)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoDevolucionNavigation.DesEstadoDevolucion)
+            @Html.DisplayName("Estado devolución")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoDevolucionNavigation.DesEstadoDevolucion)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoEnvioNavigation.DesEstadoEnvio)
+            @Html.DisplayName("Estado envío")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoEnvioNavigation.DesEstadoEnvio)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodEstadoPagoNavigation.DesEstadoPago)
+            @Html.DisplayName("Estado pago")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodEstadoPagoNavigation.DesEstadoPago)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TdcTchEstadoPedido.CodLineaNavigation.CodLinea)
+            @Html.DisplayName("Código de línea")
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TdcTchEstadoPedido.CodLineaNavigation.CodLinea)
         </dd>
     </dl>
     
-    <form method="post">
+    <form method="post" onsubmit="return confirmarEliminacion()">
         <input type="hidden" asp-for="TdcTchEstadoPedido.Id" />
-        <input type="submit" value="Eliminar" /> |
-        <a asp-page="./Index">Volver</a>
+        <input type="submit" value="Eliminar" /> <br />
+        <a asp-page="./Index" class="btn btn-primary" >Volver</a>
     </form>
 </div>
+
+<script>
+    function confirmarEliminacion() {
+        return confirm("¿Está seguro de que desea eliminar este registro?");
+    }
+</script>

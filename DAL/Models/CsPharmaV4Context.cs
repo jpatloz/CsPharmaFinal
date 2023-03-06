@@ -6,6 +6,8 @@ namespace DAL.Models;
 
 public partial class CsPharmaV4Context : DbContext
 {
+
+    //Instancia del contexto
     public CsPharmaV4Context()
     {
     }
@@ -14,6 +16,8 @@ public partial class CsPharmaV4Context : DbContext
         : base(options)
     {
     }
+
+    //Creamos un DbSet para cada tabla
 
     public virtual DbSet<TdcCatEstadosDevolucionPedido> TdcCatEstadosDevolucionPedidos { get; set; }
 
@@ -33,9 +37,12 @@ public partial class CsPharmaV4Context : DbContext
     {
         modelBuilder.Entity<TdcCatEstadosDevolucionPedido>(entity =>
         {
+            //PK
             entity.HasKey(e => e.CodEstadoDevolucion);
 
             entity.ToTable("tdc_cat_estados_devolucion_pedido", "dwh_torrecontrol");
+
+            //Definición de nombres y atributos de los campos
 
             entity.Property(e => e.CodEstadoDevolucion).HasColumnName("Cod_estado_devolucion");
             entity.Property(e => e.DesEstadoDevolucion).HasColumnName("Des_estado_devolucion");
@@ -48,9 +55,13 @@ public partial class CsPharmaV4Context : DbContext
 
         modelBuilder.Entity<TdcCatEstadosEnvioPedido>(entity =>
         {
+
+            //PK
             entity.HasKey(e => e.CodEstadoEnvio);
 
             entity.ToTable("Tdc_cat_estados_envio_pedido", "dwh_torrecontrol");
+
+            //Definición de nombres y atributos de los campos
 
             entity.Property(e => e.CodEstadoEnvio).HasColumnName("Cod_estado_envio");
             entity.Property(e => e.DesEstadoEnvio).HasColumnName("Des_estado_envio");
@@ -63,10 +74,12 @@ public partial class CsPharmaV4Context : DbContext
 
         modelBuilder.Entity<TdcCatEstadosPagoPedido>(entity =>
         {
+            //PK
             entity.HasKey(e => e.CodEstadoPago);
 
             entity.ToTable("Tdc_cat_estados_pago_pedido", "dwh_torrecontrol");
 
+            //Definición de nombres y atributos de los campos
             entity.Property(e => e.CodEstadoPago).HasColumnName("Cod_estado_pago");
             entity.Property(e => e.DesEstadoPago).HasColumnName("Des_estado_pago");
             entity.Property(e => e.Id).ValueGeneratedOnAdd();
@@ -78,10 +91,12 @@ public partial class CsPharmaV4Context : DbContext
 
         modelBuilder.Entity<TdcCatLineasDistribucion>(entity =>
         {
+            //PK
             entity.HasKey(e => e.CodLinea);
 
             entity.ToTable("Tdc_cat_lineas_distribucion", "dwh_torrecontrol");
 
+            //Definición de nombres y atributos de los campos
             entity.Property(e => e.CodLinea).HasColumnName("Cod_linea");
             entity.Property(e => e.CodBarrio).HasColumnName("Cod_barrio");
             entity.Property(e => e.CodMunicipio).HasColumnName("Cod_municipio");
@@ -105,6 +120,7 @@ public partial class CsPharmaV4Context : DbContext
 
             entity.HasIndex(e => e.CodLinea, "IX_Tdc_tch_estado_pedidos_Cod_linea");
 
+            //Definición de nombres y atributos de los campos
             entity.Property(e => e.CodEstadoDevolucion).HasColumnName("Cod_estado_devolucion");
             entity.Property(e => e.CodEstadoEnvio).HasColumnName("Cod_estado_envio");
             entity.Property(e => e.CodEstadoPago).HasColumnName("Cod_estado_pago");
@@ -114,6 +130,8 @@ public partial class CsPharmaV4Context : DbContext
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("Md_date");
             entity.Property(e => e.MdUuid).HasColumnName("Md_uuid");
+
+            //Definición de las foreign key
 
             entity.HasOne(d => d.CodEstadoDevolucionNavigation).WithMany(p => p.TdcTchEstadoPedidos)
                 .HasForeignKey(d => d.CodEstadoDevolucion)

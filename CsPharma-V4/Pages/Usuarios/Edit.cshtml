@@ -19,21 +19,17 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ModeloUsuario.Usuarios.Id" />
             <div class="form-group">
-                <input asp-for="ModeloUsuario.Usuarios.Id" class="form-control" />
-                <span asp-validation-for="ModeloUsuario.Usuarios.Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModeloUsuario.Usuarios.UserName" class="control-label"></label>
+                <label asp-for="ModeloUsuario.Usuarios.UserName" class="control-label">Nombre de usuario</label>
                 <input asp-for="ModeloUsuario.Usuarios.UserName" class="form-control" />
                 <span asp-validation-for="ModeloUsuario.Usuarios.UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ModeloUsuario.Usuarios.Email" class="control-label"></label>
+                <label asp-for="ModeloUsuario.Usuarios.Email" class="control-label">Email</label>
                 <input asp-for="ModeloUsuario.Usuarios.Email" class="form-control" />
                 <span asp-validation-for="ModeloUsuario.Usuarios.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ModeloUsuario.Usuarios.PhoneNumber" class="control-label"></label>
+                <label asp-for="ModeloUsuario.Usuarios.PhoneNumber" class="control-label">Número de teléfono</label>
                 <input asp-for="ModeloUsuario.Usuarios.PhoneNumber" class="form-control" />
                 <span asp-validation-for="ModeloUsuario.Usuarios.PhoneNumber" class="text-danger"></span>
             </div>
@@ -62,7 +58,7 @@
 
 <!-- Botón para volver al index -->
 <div>
-    <a asp-page="./Index">Volver</a>
+    <a asp-page="./Index" class="btn btn-primary" >Volver</a>
 </div>
 
 @section Scripts {

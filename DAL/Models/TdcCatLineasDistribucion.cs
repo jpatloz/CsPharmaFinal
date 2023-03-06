@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace DAL.Models;
 
+// Campos de la tabla TdcCatLineasDistribucion
 public partial class TdcCatLineasDistribucion
 {
     public string CodLinea { get; set; } = null!;

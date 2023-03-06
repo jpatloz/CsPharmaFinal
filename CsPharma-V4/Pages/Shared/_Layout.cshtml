@@ -26,11 +26,30 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-page="/EstadoPedido/Index">Lista de pedidos</a>
                             </li>
+                            @if(User.IsInRole("Administradores") || User.IsInRole("Empleados"))
+                            {                                
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-page="/Usuarios/Index">Lista de usuarios</a>
                             </li>
+                            }
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Roles
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Roles/Usuario">Usuario</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Roles/Empleados">Empleado</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Roles/Administradores">Administrador</a>
+                                    </li>
+                                </ul>
+                            </li>
                     </ul>
-                    }
+                        }
                 </div>
                 <partial name="_LoginPartial"/>
             </div>

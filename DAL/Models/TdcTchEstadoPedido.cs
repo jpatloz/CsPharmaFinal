@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace DAL.Models;
 
+// Campos de la tabla TdcCatEstadoPedido
 public partial class TdcTchEstadoPedido
 {
     public int Id { get; set; }

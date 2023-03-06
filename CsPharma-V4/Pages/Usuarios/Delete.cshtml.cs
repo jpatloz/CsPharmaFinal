@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CsPharma_V4.Pages.Usuarios
 {
+    //Autoriza el acceso al controlador 
     [Authorize(Roles = "Administradores")]
     public class DeleteModel : PageModel
     {

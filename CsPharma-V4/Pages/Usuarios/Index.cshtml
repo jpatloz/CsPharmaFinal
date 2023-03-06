@@ -9,11 +9,6 @@
 
 <h1>Index</h1>
 
-<!-- Botón que nos lleva a la vista de crear -->
-<p>
-    <a asp-page="Create">Crear</a>
-</p>
-
 <!-- Formulario para ingresar el filtro -->
 <form method="get">
     <div class="form-group">
@@ -45,6 +40,9 @@
     <tbody>
         @foreach (var item in Model.listaUsuarios)
         {
+            @if (item.Email != User.Identity.Name)
+            {
+                
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
@@ -65,6 +63,7 @@
                     <a asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
                 </td>
             </tr>
+            }
         }
     </tbody>
 </table>

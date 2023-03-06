@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace DAL.Models;
 
+// Campos de la tabla TdcCatEstadosPagoPedido
 public partial class TdcCatEstadosPagoPedido
 {
     public string CodEstadoPago { get; set; } = null!;

@@ -31,25 +31,22 @@
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].MdUuid)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].MdDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodPedido)
+                @Html.DisplayName("Código de pedido")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoDevolucionNavigation.DesEstadoDevolucion)
+                @Html.DisplayName("Estado devolución")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoEnvioNavigation.DesEstadoEnvio)
+                @Html.DisplayName("Estado envío")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodEstadoPagoNavigation.DesEstadoPago)
+                @Html.DisplayName("Estado pago")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TdcTchEstadoPedido[0].CodLineaNavigation.CodLinea)
+                @Html.DisplayName("Código de línea")
             </th>
             <th></th>
         </tr>
@@ -59,9 +56,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MdUuid)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MdDate)
