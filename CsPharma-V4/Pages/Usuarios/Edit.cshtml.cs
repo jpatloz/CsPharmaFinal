@@ -21,6 +21,7 @@ namespace CsPharma_V4.Pages.Usuarios
         private readonly WorkRepository _workRepository;
         private SignInManager<User> _signInManager;
 
+
         public EditModel(WorkRepository workRepository, SignInManager<User> signInManager)
         {
             _workRepository = workRepository;
@@ -28,24 +29,24 @@ namespace CsPharma_V4.Pages.Usuarios
         }
 
         [BindProperty]
-        public ModeloUsuario ModeloUsuario { get; set; }
+        public ModeloUsuario ModeloUsuario { get; set; } = default!;
         public async Task<IActionResult> OnGetAsync(string id)
         {
             var usuario = _workRepository.UsuariosRepo.GetUsuario(id);
-            var rol = _workRepository.RolesRepo.GetRoles();
-
-            if (usuario == null || rol == null)
-            {
-                return NotFound();
-            }
+            var roles = _workRepository.RolesRepo.GetRoles();
 
             var rolesUsuario = await _signInManager.UserManager.GetRolesAsync(usuario);
 
-            var rolesItems = rol.Select(roles =>
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+    
+            var rolesItems = roles.Select(rol =>
                 new SelectListItem(
-                    roles.Name,
-                    roles.Id,
-                    rolesUsuario.Any(u => u.Contains(roles.Name))
+                    rol.Name,
+                    rol.Id,
+                    rolesUsuario.Any(u => u.Contains(rol.Name))
                 )).ToList();
 
             var modeloUsuario = new ModeloUsuario
@@ -59,13 +60,10 @@ namespace CsPharma_V4.Pages.Usuarios
             return Page();
         }
 
+            
+
         public async Task<IActionResult> OnPostAsync(ModeloUsuario modeloUsuario)
         {
-            if (modeloUsuario == null)
-            {
-                return NotFound();
-            }
-
             var usuario = _workRepository.UsuariosRepo.GetUsuario(modeloUsuario.Usuarios.Id);
 
             if (usuario == null)
@@ -78,10 +76,8 @@ namespace CsPharma_V4.Pages.Usuarios
             var añadirRol = new List<string>();
             var eliminarRol = new List<string>();
 
-            if (modeloUsuario.Roles != null)
+            foreach (var rol in modeloUsuario.Roles)
             {
-                foreach (var rol in modeloUsuario.Roles)
-                {
                     var rolDB = rolesUsuarioDB.FirstOrDefault(u => u == rol.Text);
 
                     if (rol.Selected)
@@ -99,13 +95,15 @@ namespace CsPharma_V4.Pages.Usuarios
                         }
                     }
                 }
-            }
+            
+
 
             if (añadirRol.Any())
             {
                 await _signInManager.UserManager.AddToRolesAsync(usuario, añadirRol);
             }
-            else if (eliminarRol.Any())
+
+            if (eliminarRol.Any())
             {
                 await _signInManager.UserManager.RemoveFromRolesAsync(usuario, eliminarRol);
             }

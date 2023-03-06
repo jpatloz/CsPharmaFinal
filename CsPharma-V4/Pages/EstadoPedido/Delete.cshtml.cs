@@ -13,9 +13,9 @@ namespace CsPharma_V4.Pages.EstadoPedido
     [Authorize(Roles = "Administradores, Empleados")]
     public class DeleteModel : PageModel
     {
-        private readonly DAL.Models.CsPharmaV4Context _context;
+        private readonly CsPharmaV4Context _context;
 
-        public DeleteModel(DAL.Models.CsPharmaV4Context context)
+        public DeleteModel(CsPharmaV4Context context)
         {
             _context = context;
         }

@@ -34,6 +34,8 @@ namespace CsPharma_V4.Pages.EstadoPedido
         
         public async Task<IActionResult> OnPostAsync()
         {
+            TdcTchEstadoPedido.MdUuid = Guid.NewGuid().ToString();
+            TdcTchEstadoPedido.MdDate = DateTime.Now;
             _context.TdcTchEstadoPedidos.Add(TdcTchEstadoPedido);
             await _context.SaveChangesAsync();
 

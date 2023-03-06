@@ -40,15 +40,14 @@
 
             <div class="form-group">
                 <label>Roles:</label>
-                @foreach (var rol in Model.ModeloUsuario.Roles)
+                @for (int i = 0; i < @Model.ModeloUsuario.Roles.Count(); i++)
                 {
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox"
-                           asp-for="@rol.Selected"
-                           value="@rol.Value" />
-                        <label class="form-check-label" asp-for="@rol.Selected">
-                            @rol.Text
-                        </label>
+                        @Html.CheckBoxFor(c => @Model.ModeloUsuario.Roles[i].Selected)
+                        @Html.HiddenFor(h => @Model.ModeloUsuario.Roles[i].Value)
+
+                        @Html.LabelFor(l => @Model.ModeloUsuario.Roles[i].Selected, @Model.ModeloUsuario.Roles[i].Text, new {@class="form-check-label"})
+                        @Html.HiddenFor(h => @Model.ModeloUsuario.Roles[i].Text)
                     </div>
                 }
             </div>

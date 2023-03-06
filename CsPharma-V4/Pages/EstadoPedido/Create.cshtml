@@ -13,35 +13,28 @@
 <hr />
         <div class="row">
             <div class="col-md-4">
-
         <!-- Formulario de creación de pedidos -->
                 <form method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="TdcTchEstadoPedido.MdUuid" class="control-label"></label>
-                        <input asp-for="TdcTchEstadoPedido.MdUuid" class="form-control" />
-                        <span asp-validation-for="TdcTchEstadoPedido.MdUuid" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="TdcTchEstadoPedido.MdDate" class="control-label"></label>
-                        <input asp-for="TdcTchEstadoPedido.MdDate" class="form-control" />
-                        <span asp-validation-for="TdcTchEstadoPedido.MdDate" class="text-danger"></span>
-                    </div>
+
+                    <input type="hidden" asp-for="TdcTchEstadoPedido.MdUuid" />
+                    <input type="hidden" asp-for="TdcTchEstadoPedido.MdDate"/>
+
                     <div class="form-group">
                         <label asp-for="TdcTchEstadoPedido.CodPedido" class="control-label"></label>
                         <input asp-for="TdcTchEstadoPedido.CodPedido" class="form-control" />
                         <span asp-validation-for="TdcTchEstadoPedido.CodPedido" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="control-label"></label>
+                        <label asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="control-label">Estado envío</label>
                         <select asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="form-control" asp-items="ViewBag.CodEstadoEnvio"></select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="TdcTchEstadoPedido.CodEstadoPago" class="control-label"></label>
+                        <label asp-for="TdcTchEstadoPedido.CodEstadoPago" class="control-label">Estado pago</label>
                         <select asp-for="TdcTchEstadoPedido.CodEstadoPago" class="form-control" asp-items="ViewBag.CodEstadoPago"></select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="control-label"></label>
+                        <label asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="control-label">Estado devolución</label>
                         <select asp-for="TdcTchEstadoPedido.CodEstadoDevolucion" class="form-control" asp-items="ViewBag.CodEstadoDevolucion"></select>
                     </div>
                     <div class="form-group">
