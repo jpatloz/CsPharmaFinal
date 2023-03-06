@@ -11,10 +11,6 @@ body{
     color: #090909;
 }
 
-header{
-    background-color: #5ccb5f;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -74,6 +70,20 @@ input {
     border-color: #5dc1b9;
 }
 
+.delete{
+    width: 25%;
+}
+
+.filtro{
+    width: 50%;
+}
+
+.filtroBtn{
+    width: 50%;
+    margin-bottom: 2%;
+}
+
 .btn{
     margin: 2%;
+    border-radius: 20px;
 }

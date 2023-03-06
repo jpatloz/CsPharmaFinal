@@ -17,10 +17,16 @@
         <!-- Formulario de estado del pedido -->
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TdcTchEstadoPedido.CodPedido" />
+            <input type="hidden" asp-for="TdcTchEstadoPedido.Id" />
             <input type="hidden" asp-for="TdcTchEstadoPedido.MdUuid" />
             <input type="hidden" asp-for="TdcTchEstadoPedido.MdDate" />
-            <input type="hidden" asp-for="TdcTchEstadoPedido.Id" />
+            
+
+            <div class="form-group">
+                <label asp-for="TdcTchEstadoPedido.CodPedido" class="control-label">Estado envío</label>
+                <select asp-for="TdcTchEstadoPedido.CodPedido" class="form-control" asp-items="ViewBag.CodPedido"></select>
+                <span asp-validation-for="TdcTchEstadoPedido.CodPedido" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="control-label">Estado envío</label>
                 <select asp-for="TdcTchEstadoPedido.CodEstadoEnvio" class="form-control" asp-items="ViewBag.CodEstadoEnvio"></select>
