@@ -32,10 +32,12 @@ namespace CsPharma_V4.Pages.Usuarios
                 listaUsuarios = await _context.UserSet.ToListAsync();
             }
 
-            //Método para que el filtro busque por el nombre de usuario, email y teléfono
+            //Método para que el filtro busque por toda la lista
             if (!string.IsNullOrEmpty(filtro))
             {
-                query = query.Where(u => u.UserName.Contains(filtro) || u.Email.Contains(filtro) || u.PhoneNumber.Contains(filtro));
+                query = query.Where(u => u.UserName.Contains(filtro) || u.Email.Contains(filtro) 
+                || u.PhoneNumber.Contains(filtro) || u.Id.Contains(filtro) || u.NombreUsuario.Contains(filtro)
+                || u.ApellidosUsuario.Contains(filtro));
             }
 
             //Ejecuta la consulta de la lista de usuarios

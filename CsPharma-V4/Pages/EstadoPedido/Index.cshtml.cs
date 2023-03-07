@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.EstadoPedido
 {
+    //Autoriza el acceso a este controlador
+    [Authorize(Roles = "Administradores, Empleados, Usuarios")]
     public class IndexModel : PageModel
     {
         // Atributo para llamar al contexto de la base de datos

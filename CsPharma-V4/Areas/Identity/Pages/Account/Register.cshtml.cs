@@ -91,7 +91,7 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
 
             // Campo para confirmar la contraseña del usuario
             [DataType(DataType.Password)]
-            [Display(Name = "ConfirmarContraseña")]
+            [Display(Name = "Confirmar Contraseña")]
             [Compare("Contraseña", ErrorMessage = "Las contraseñas no coinciden")]
             public string ConfirmarContraseña { get; set; }
         }
@@ -154,8 +154,8 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
                         protocol: Request.Scheme);
 
                     // Envía el correo electrónico de confirmación
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirma tu email",
+                        $"Por favor confirme su cuenta <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicka aquí</a>.");
 
                     // Si la confirmación de correo electrónico es obligatoria, redirige al usuario a la página de confirmación
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)

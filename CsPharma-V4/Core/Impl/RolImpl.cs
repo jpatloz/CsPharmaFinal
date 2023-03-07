@@ -8,19 +8,23 @@ using Microsoft.AspNetCore.Identity;
 
 namespace CsPharma_V4.Core.Impl
 {
-    public class RolImpl: RolRepository
-    {
-        private readonly LoginContexto _context;
-
-        public RolImpl(LoginContexto loginContexto)
+        // Esta clase implementa la interfaz RolRepository
+        public class RolImpl : RolRepository
         {
-            _context = loginContexto;
-        }
+            // Esta variable guarda una instancia del contexto de Login
+            private readonly LoginContexto _context;
 
-        public ICollection<IdentityRole> GetRoles()
-        {
-            return _context.Roles.ToList();
-        }
+            // Constructor que recibe una instancia de LoginContexto
+            public RolImpl(LoginContexto loginContexto)
+            {
+                _context = loginContexto;
+            }
 
+            // Método que devuelve una colección de objetos IdentityRole
+            public ICollection<IdentityRole> GetRoles()
+            {
+                // Se obtienen todos los roles del contexto de Login y se convierten en una lista
+                return _context.Roles.ToList();
+            }
+        }
     }
-}

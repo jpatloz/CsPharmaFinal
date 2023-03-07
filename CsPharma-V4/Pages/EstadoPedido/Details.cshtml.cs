@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CsPharma_V4.Pages.EstadoPedido
 {
+    [Authorize(Roles = "Administradores, Empleados, Usuarios")]
     public class DetailsModel : PageModel
     {
         // Se declara una instancia del contexto de base de datos "CsPharmaV4Context"

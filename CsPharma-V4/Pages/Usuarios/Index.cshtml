@@ -26,6 +26,12 @@
                 @Html.DisplayName("Id")
             </th>
             <th>
+                @Html.DisplayName("Nombre")
+            </th>
+            <th>
+                @Html.DisplayName("Apellidos")
+            </th>
+            <th>
                 @Html.DisplayName("Nombre de usuario")
             </th>
             <th>
@@ -46,6 +52,12 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApellidosUsuario)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UserName)

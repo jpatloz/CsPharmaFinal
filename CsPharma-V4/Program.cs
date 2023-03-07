@@ -57,6 +57,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+//Se necesita para usar el login y register
 app.UseAuthentication();;
 
 app.UseAuthorization();

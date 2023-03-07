@@ -52,6 +52,7 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
             [Display(Name = "Recuérdame")]
@@ -97,7 +98,7 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
                 // Si las credenciales son válidas, redirigir al usuario a la página solicitada
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Usuario logueado.");
                     return LocalRedirect(returnUrl);
                 }
 
@@ -116,7 +117,7 @@ namespace CsPharma_V4.Areas.Identity.Pages.Account
                 else
                 {
                     // Si las credenciales no son válidas, agregar un error de modelo y volver a mostrar la página de inicio de sesión
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Error de inicio de sesión.");
                     return Page();
                 }
             }
